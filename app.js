@@ -32,11 +32,11 @@ let numOfVotes = 0;
 app.get('/vote', (req, res) => {
   numOfVotes += 1;
   pusher.trigger('counter', 'vote', {votes: numOfVotes});
-  res.status(200).send();
+  res.status(200).send(numOfVotes);
 });
 app.get('/curr-vote', (req, res) => {
   pusher.trigger('counter', 'vote', {votes: numOfVotes});
-  res.status(200).send();
+  res.status(200).send(numOfVotes);
 })
 
 /*
